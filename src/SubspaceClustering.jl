@@ -15,7 +15,7 @@ using SparseArrays: sparse
 using Statistics: mean
 
 # Exports
-export KASResult, kas, KSSResult, kss, TSCResult, tsc
+export KASResult, kas, KSSResult, kss, TSCResult, tsc, SSCResult, ssc
 @compat public randsubspace
 
 # Utility functions/macros
@@ -26,5 +26,6 @@ include("utils/progresslogging.jl")
 include("algorithms/kss.jl")
 include("algorithms/kas.jl")
 include("algorithms/tsc.jl")
+include("algorithms/ssc.jl")
 
 end
