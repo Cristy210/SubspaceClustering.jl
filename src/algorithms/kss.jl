@@ -126,7 +126,7 @@ function kss(
             changed[k] || continue
 
             inds = findall(==(k), c)
-            
+
             if !isempty(inds)
                 U[k] = kss_estimate_subspace(view(X, :, inds), d[k])
             else
@@ -196,13 +196,12 @@ Return the updated vector assignment `c`.
 See also [`kss_assign_clusters`](@ref), [`kss`](@ref).
 """
 function kss_assign_clusters!(c, U, X, changed)
-
     fill!(changed, false)
 
     for (i, xi) in pairs(eachcol(X))
         old_assignment = c[i]
         new_assignment = argmax(sum(abs2, U[k]' * xi) for k in eachindex(U))
-        
+
         if old_assignment != new_assignment
             changed[old_assignment] = true
             changed[new_assignment] = true
